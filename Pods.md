@@ -1,11 +1,11 @@
 ## create the pod from your YAML file, use the kubectl create command:
- kubectl create -f kubia-manual.yaml
+  kubectl create -f kubia-manual.yaml
 
 ## Get pod description:
- kubectl get po kubia-zxzij -o yaml
+  kubectl get po kubia-zxzij -o yaml
  
 ## when creating a pod manifest from scratch, you can start by asking kubectl to explain pods:
-  kubectl explain pods
+   kubectl explain pods
   kubectl explain pods.spec 
  
 
