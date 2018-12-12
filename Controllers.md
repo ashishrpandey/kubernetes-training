@@ -1,11 +1,12 @@
-## to make the app fail artificially.
-## and properly demo liveness probes, we modified app slightly and made it return a 500 Internal Server Error 
-## HTTP status code for each request after the fifth one—your app will handle the first five client requests properly and then return an error on every subsequent request. Thanks to the liveness probe, 
-## it should be restarted when that happens, allowing it to properly handle client requests again.
+# There are multiple types of Controllers in Kubernetes
 
- #refer to kubia-liveness-probe.yaml
+
+To make the app fail artificially and properly demo liveness probes, we modified app slightly and made it return a 500 Internal Server Error.
+HTTP status code for each request after the fifth one—your app will handle the first five client requests properly and then return an error on every subsequent request. Thanks to the liveness probe, it should be restarted when that happens, allowing it to properly handle client requests again.
+
+ # refer to kubia-liveness-probe.yaml
  
- # launch pod 
+ # launch a pod 
   kubectl create -f kubia-manual.yaml
 
 kubectl get po kubia-liveness
@@ -35,7 +36,7 @@ kubectl get po kubia-liveness
   ## Scale out
    kubectl scale rc kubia --replicas=10
    
-   ## Delete without eleting pods 
+   ## Delete without deleting pods 
    kubectl delete rc kubia --cascade=false
    
    
