@@ -1,6 +1,6 @@
 ## Getting started
 # run a container
-docker run --name kubia-container -p 8080:8080 -d luksa/kubia
+    docker run --name kubia-container -p 8080:8080 -d luksa/kubia
 
 ## See the effect 
 curl localhost:8080
