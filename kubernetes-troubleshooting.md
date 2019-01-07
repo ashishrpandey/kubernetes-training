@@ -1,10 +1,6 @@
 To start with anything on command line: 
-
-
 To understand the meaning of yaml files use 
-Kubectl explain
-e.g.
-
+Kubectl explain <objecttype>
 Kubectl explain pods
 Kubectl explain pods.spec
 
