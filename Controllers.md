@@ -28,9 +28,9 @@ kubectl get rc
  kubectl describe rc kubia
   
  ## Modify a pod's label 
- kubectl get pods --show-labels
- kubectl label pod <podname> app=foo --overwrite
- 
+     kubectl get pods --show-labels
+     kubectl label pod <podname> app=foo --overwrite
+
 ## observe the pods with label column [new pod being created]
 kubectl get pods -L app
   
