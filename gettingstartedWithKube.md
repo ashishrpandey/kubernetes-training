@@ -33,9 +33,8 @@
 ### Checkout the svc for the exposed port
     kubectl get svc
  
-### Checkout on browser <public ip>:<port>
-
-### it shall show the output from pod for public ip of all masters and all nodes
+Checkout on browser <public ip>:<port>
+it shall show the output from pod for public ip of all masters and all nodes
  
 ## Scale the srvice
     kubectl scale rc kubia --replicas=3
