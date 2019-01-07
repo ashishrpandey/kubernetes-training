@@ -7,72 +7,70 @@ HTTP status code for each request after the fifth one—your app will handle the
 # refer to kubia-liveness-probe.yaml
  
 # launch a pod 
-kubectl create -f kubia-manual.yaml
+    kubectl create -f kubia-manual.yaml
 
-kubectl get po kubia-liveness
+    kubectl get po kubia-liveness
 
 # after it gets restarted
-kubectl logs mypod --previous
+    kubectl logs mypod --previous
  
 # get pod info=> check liveness field
-kubectl describe po kubia-liveness
+    kubectl describe po kubia-liveness
  
 ## Follow below commnads and observe how pods are getting created 
-kubectl create -f kubia-rc.yaml
-kubectl get pods
-kubectl delete pod kubia-53thy
-kubectl get pods
-kubectl get rc
+    kubectl create -f kubia-rc.yaml
+    kubectl get pods
+    kubectl delete pod kubia-53thy
+    kubectl get pods
+    kubectl get rc
  
  ## Observe RC
- kubectl describe rc kubia
+    kubectl describe rc kubia
   
  ## Modify a pod's label 
      kubectl get pods --show-labels
      kubectl label pod <podname> app=foo --overwrite
 
 ## observe the pods with label column [new pod being created]
-kubectl get pods -L app
+    kubectl get pods -L app
   
 ## Scale out
-kubectl scale rc kubia --replicas=10
-   
+    kubectl scale rc kubia --replicas=10
+
 ## Delete without deleting pods 
-kubectl delete rc kubia --cascade=false
+    kubectl delete rc kubia --cascade=false
    
    
    
- ## Replica Set
- # creation 
- kubectl create -f kubia-replicaset.yaml
- 
- kubectl get rs 
- kubectl describe rs
+ ## Replica Set creation 
+    kubectl create -f kubia-replicaset.yaml
+
+    kubectl get rs 
+    kubectl describe rs
  
  ## Daemon set
  
  ## This daemon set is designed to run on all the disks that has ssd disk (disk=ssd )
-  kubectl create -f ssd-monitor-daemonset.yaml
-  kubectl get ds
-  kubectl get po
-  kubectl get node
-  kubectl label node <nodename> disk=ssd
+      kubectl create -f ssd-monitor-daemonset.yaml
+      kubectl get ds
+      kubectl get po
+      kubectl get node
+      kubectl label node <nodename> disk=ssd
  
- # check it now 
-  kubectl get po
+ ## check it now 
+     kubectl get po
   
-  
- ## job
- kubectl get jobs
- kubectl get po
+# job
+      kubectl get jobs
+      kubectl get po
 
 ## After the two minutes have passed, see the status "completed"
- kubectl get po -a
- kubectl logs <jobpodname>
+     kubectl get po -a
+     kubectl logs <jobpodname>
 
 ## Sequential comletion and parallelism
 
-kubectl create -f multi-completion-batch-job.yaml
-kubectl create -f multi-completion-parallel-batch-job.yaml
+    kubectl create -f multi-completion-batch-job.yaml
+    kubectl create -f multi-completion-parallel-batch-job.yaml
 ## You can even change a Job’s parallelism property while the Job is running
-kubectl scale job multi-completion-batch-job --replicas 3
+    kubectl scale job multi-completion-batch-job --replicas 3
