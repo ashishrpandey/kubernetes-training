@@ -1,0 +1,14 @@
+# This example shows how to enable access from outside of the 
+# cluster to all endpoints that have the label role=public.
+
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "from-world-to-role-public"
+spec:
+  endpointSelector:
+    matchLabels:
+      role: public
+  ingress:
+    - fromEntities:
+      - world
