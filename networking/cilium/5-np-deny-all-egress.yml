@@ -1,0 +1,17 @@
+# An endpoint can be put into the default deny mode at ingress or egress if a rule
+# selects the endpoint and contains the respective rule section ingress or egress.
+
+# This example illustrates how to put an endpoint into 
+# default deny mode without whitelisting other peers at the same time.
+
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "deny-all-egress"
+spec:
+  endpointSelector:
+    matchLabels:
+      role: restricted
+  egress:
+  - {}
+  
