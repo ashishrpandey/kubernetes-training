@@ -1,0 +1,13 @@
+# An empty Endpoint Selector will select all endpoints, thus writing a rule
+# that will allow all ingress traffic to an endpoint may be done as follows:
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "allow-all-to-victim"
+spec:
+  endpointSelector:
+    matchLabels:
+      role: victim
+  ingress:
+  - fromEndpoints:
+    - {}
