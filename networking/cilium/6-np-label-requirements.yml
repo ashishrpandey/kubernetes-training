@@ -1,0 +1,20 @@
+# The purpose of this rule is to allow establishing base requirements such as,
+# any endpoint in env=prod can only be accessed if the source endpoint also carries the label env=prod.
+
+# This example shows how to require every endpoint with the label env=prod to be only accessible 
+# if the source endpoint also has the label env=prod.
+
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+description: "For endpoints with env=prod, only allow if source also has label env=prod"
+metadata:
+  name: "requires-rule"
+specs:
+  - endpointSelector:
+      matchLabels:
+        env: prod
+    ingress:
+    - fromRequires:
+      - matchLabels:
+          env: prod
+          
