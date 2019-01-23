@@ -1,0 +1,15 @@
+// The following example illustrates how to use a simple ingress rule to allow communication from 
+// endpoints with the label role=frontend to endpoints with the label role=backend.
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "l3-rule"
+spec:
+  endpointSelector:
+    matchLabels:
+      role: backend
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        role: frontend
+        
