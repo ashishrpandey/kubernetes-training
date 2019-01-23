@@ -1,3 +1,5 @@
+# How to associate a static ip to a container
+
 ## Before starting 
 Open /etc/default/docker and add the below entry:
 
