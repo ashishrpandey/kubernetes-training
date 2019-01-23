@@ -1,0 +1,24 @@
+# CIDR rules will apply to traffic where one side of the connection is:
+# A network endpoint outside the cluster
+# The host network namespace where the pod is running.
+# Within the cluster prefix but the IP’s networking is not provided by Cilium.
+
+# This example shows how to allow all endpoints with the label app=myService
+# to talk to the external IP 20.1.1.1, as well as the CIDR prefix 10.0.0.0/8,
+# but not CIDR prefix 10.96.0.0/12
+
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "cidr-rule"
+spec:
+  endpointSelector:
+    matchLabels:
+      app: myService
+  egress:
+  - toCIDR:
+    - 20.1.1.1/32
+  - toCIDRSet:
+    - cidr: 10.0.0.0/8
+      except:
+      - 10.96.0.0/12
