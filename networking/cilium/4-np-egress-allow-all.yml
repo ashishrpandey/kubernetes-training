@@ -1,0 +1,14 @@
+# An empty Endpoint Selector will select all endpoints, thus writing a rule that will
+# allow all egress traffic from an endpoint may be done as follows:
+
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "allow-all-from-frontend"
+spec:
+  endpointSelector:
+    matchLabels:
+      role: frontend
+  egress:
+  - toEndpoints:
+    - {}
