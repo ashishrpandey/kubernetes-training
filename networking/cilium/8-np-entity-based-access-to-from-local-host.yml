@@ -1,0 +1,17 @@
+# Kubernetes will automatically allow all communication from and to the local host of all local endpoints. 
+# You can run the agent with the option --allow-localhost=policy to disable this behavior
+# which will give you control over this via policy
+
+# Allow all endpoints with the label env=dev to access the host that is serving the particular endpoint.
+
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "dev-to-host"
+spec:
+  endpointSelector:
+    matchLabels:
+      env: dev
+  egress:
+    - toEntities:
+      - host
