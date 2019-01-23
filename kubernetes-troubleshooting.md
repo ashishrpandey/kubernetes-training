@@ -129,6 +129,9 @@ They do this by creating Event resources, which are like any other Kubernetes re
 
           kubectl get events --watch
 
+Remove the taints on the master so that you can schedule pods on master as well.
+
+          kubectl taint nodes --all node-role.kubernetes.io/master-
 
 ### Never do this 
     kubectl delete all --all
