@@ -1,0 +1,16 @@
+# This example shows how to allow all endpoints with the label id=app2 to talk to 
+# all endpoints of kubernetes service myservice in kubernetes namespace default.
+
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "service-rule"
+spec:
+  endpointSelector:
+    matchLabels:
+      id: app2
+  egress:
+  - toServices:
+    - k8sService:
+        serviceName: myservice
+        namespace: default
