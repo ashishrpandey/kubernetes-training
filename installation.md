@@ -45,6 +45,9 @@ On master node login as normal user
     mkdir -p $HOME/.kube
     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
+    
+    mkdir -p $HOME/.kube
+    export KUBECONFIG=/etc/kubernetes/kubelet.conf
 
 For calico networking
 
@@ -55,6 +58,8 @@ For calico networking
 
     mkdir -p $HOME/.kube
     export KUBECONFIG=/etc/kubernetes/kubelet.conf
+    
+    
 
 Take a pause of 2 minutes and see if the nodes are ready
 
