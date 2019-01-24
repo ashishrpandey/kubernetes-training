@@ -33,30 +33,36 @@ On both master and slave nodes :
 
     setenforce 0
 
+### install kubelet, kubeadm and kubectl; start kubelet daemon
+### Do it on the worker nodes as well
 
     yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 
     systemctl enable kubelet && systemctl start kubelet
 
-On master node login as normal user 
+### On master node  initialize the cluster 
 
     sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPU
     #  sudo kubeadm init --pod-network-cidr=192.168.0.0/16 #Do this only if proper CPU cores are available
     mkdir -p $HOME/.kube
     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
-    
-    mkdir -p $HOME/.kube
     export KUBECONFIG=/etc/kubernetes/kubelet.conf
 
-For calico networking
+## On Worker nodes, Switch to the root mode
+Copy kubeadm join command from output of "kubeadm init on master node" 
+   
+    <kubeadm join command copies from master node>
+
+
+## For calico networking: apply on master node only
 
     kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/hosted/etcd.yaml
     kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/rbac.yaml
     kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/hosted/calico.yaml
     
 
-Take a pause of 2 minutes and see if the nodes are ready
+Take a pause of 2 minutes and see if the nodes are ready; run it on master node
 
     kubectl get nodes
 
@@ -64,15 +70,9 @@ watch system pods
 
     kubectl get pods --all-namespaces
 
-## On Worker nodes, Switch to the root mode
 
-    sudo su
-
-Now copy kubeadm join command from output of kube master node 
-   
-    <kubeadm join command copies from master node>
-
-on all the nodes do 
+on all the worker nodes do 
 
     mkdir -p $HOME/.kube
     export KUBECONFIG=/etc/kubernetes/kubelet.conf
+    
