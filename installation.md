@@ -54,11 +54,6 @@ For calico networking
     kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/hosted/etcd.yaml
     kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/rbac.yaml
     kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/hosted/calico.yaml
-
-
-    mkdir -p $HOME/.kube
-    export KUBECONFIG=/etc/kubernetes/kubelet.conf
-    
     
 
 Take a pause of 2 minutes and see if the nodes are ready
