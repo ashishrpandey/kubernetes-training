@@ -38,3 +38,10 @@ Cleanup existing pods and replicasets
  	kubectl rollout history deployment kubia
 
 	kubectl rollout undo deployment kubia --to-revision=1
+	kubectl rollout pause deployment kubia
+	kubectl rollout resume deployment kubia
+	
+update deployment with readiness probe:
+
+	$ kubectl apply -f kubia-deployment-v3-with-readinesscheck.yaml
+	deployment "kubia" configured
