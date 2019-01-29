@@ -3,7 +3,7 @@
 Cleanup existing pods and replicasets 
 
 ### create RC and svc
-	kubectl apply-f kubia-rc-and-service-v1.yaml
+	kubectl apply -f kubia-rc-and-service-v1.yaml
 
 ## 
 	kubectl get svc kubia
