@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kubiapod
+  name: kubiapod2
   labels:
     app: kubia
 spec:
