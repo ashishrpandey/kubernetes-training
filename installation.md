@@ -7,9 +7,7 @@ Launch 2 amazon linux 2 machines
 On both master and slave nodes :
 
     sudo su 
-    sudo amazon-linux-extras install docker -y
-    OR 
-    yum install -y docker
+    yum install docker -y 
     systemctl enable docker && systemctl start docker
 
 
@@ -34,7 +32,7 @@ On both master and slave nodes :
     setenforce 0
 
 ### install kubelet, kubeadm and kubectl; start kubelet daemon
-### Do it on the worker nodes as well
+### Do it on both master as welll as worker nodes 
 
     yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 
