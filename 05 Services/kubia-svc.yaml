@@ -1,8 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: kubia
+  name: kubia2
 spec:
+  clusterIP: 10.99.10.99
   ports:
   - port: 80
     targetPort: 8080
