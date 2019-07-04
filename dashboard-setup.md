@@ -22,9 +22,9 @@ Open Firefox browser (It does not work in chrome due to security check )
  
  - Proceed by accepting the warning 
  
- It will ask for a token 
- 
- Generate the token using below command on Master: 
+ - It will ask for a token 
+
+ - Generate the token using below command on Master: 
  
 
     kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
