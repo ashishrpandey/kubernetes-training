@@ -14,11 +14,18 @@ Launch the required  deployment, service sa, etc using -
 
     kubectl proxy &
 
+Edit the kubernetes-dashboard service type from ClusterIp to NodePort 
+
+            kubectl edit svc kubernetes-dashboard
+            <Change type: ClusterIp to type: NodePort>
+            save the file and exit 
+Observe the Node Port assigned to kubernetes-dashboard service
+
 Open Firefox browser (It does not work in chrome due to security check )
 
-    <public-ip-of-master-node>:<nodeport>
+     https://<public-ip-of-master-node>:<nodeport>
       eg.
-     52.66.246.227:30427/
+     https://52.66.246.227:30427/
  
  - Proceed by accepting the warning 
  
