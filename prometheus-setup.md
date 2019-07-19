@@ -27,3 +27,7 @@ Then create service
 Open in browser:
 
     <publicip>:30000
+
+
+Reference: 
+https://devopscube.com/setup-prometheus-monitoring-on-kubernetes/
