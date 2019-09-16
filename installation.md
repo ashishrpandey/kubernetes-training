@@ -75,5 +75,6 @@ on all the worker nodes do below to make kubectl command work on worker
     export KUBECONFIG=/etc/kubernetes/kubelet.conf
     
 to run a service, run following command on master
+
     kubectl run  nginx --image=nginx --port=80  --> if you get forbidden error then exit and do "sudo su -"
     kubectl  get pods -o wide . --> to see where pod got created
