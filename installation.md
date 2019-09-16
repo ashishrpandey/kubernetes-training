@@ -69,7 +69,7 @@ watch system pods
     kubectl get pods --all-namespaces
 
 
-on all the worker nodes do 
+on all the worker nodes do below to make kubectl command work on worker
 
     mkdir -p $HOME/.kube
     export KUBECONFIG=/etc/kubernetes/kubelet.conf
