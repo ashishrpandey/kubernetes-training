@@ -29,7 +29,7 @@ On both master and slave nodes :
     EOF
     sysctl --system
 
-    setenforce 0
+    setenforce 0 . #disable secure linux. not recomended for production
 
 ### install kubelet, kubeadm and kubectl; start kubelet daemon
 ### Do it on both master as welll as worker nodes 
