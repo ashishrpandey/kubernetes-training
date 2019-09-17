@@ -3,7 +3,7 @@ kind: Job
 metadata:
   name: multi-completion-batch-job
 spec:
-  completions: 5
+  completions: 5  #run this job 5 times one after the other
   template:
     metadata:
       labels:
