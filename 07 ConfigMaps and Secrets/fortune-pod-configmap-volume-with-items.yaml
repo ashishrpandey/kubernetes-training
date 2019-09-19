@@ -26,8 +26,8 @@ spec:
     emptyDir: {}
   - name: config
     configMap:
-      name: fortune-config
+      name: fortune-config  #take from this configMap
       items:
-      - key: my-nginx-config.conf
-        path: gzip.conf
+      - key: my-nginx-config.conf #take contents of this key (which is file name)
+        path: gzip.conf  #put contents of this key in this file/path
 

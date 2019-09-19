@@ -5,7 +5,7 @@ metadata:
 spec:
   volumes:
   - name: mongodb-data
-    gcePersistentDisk:
+    gcePersistentDisk:   #for google storage
       pdName: mongodb
       fsType: nfs4
   containers:

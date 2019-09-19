@@ -20,5 +20,5 @@ spec:
       protocol: TCP
   volumes:
   - name: html
-    emptyDir: {}
+    emptyDir: {} #type of volume. emptyDir means volume is empty. other options are -> gitRepo so it will copy contents of repo to the volume. hostPath will put the data on host dir
 

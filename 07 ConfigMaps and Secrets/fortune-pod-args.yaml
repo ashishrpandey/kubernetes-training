@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - image: luksa/fortune:args
-    args: ["2"]
+    args: ["2"]                   #will be taken as $INTERVAL in fortune-args/fortuneloop.sh
     name: html-generator
     volumeMounts:
     - name: html
