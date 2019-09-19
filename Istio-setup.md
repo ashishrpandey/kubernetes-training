@@ -1,9 +1,8 @@
 ## Download Istio
 
     curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.0.0 sh -
+    
     export PATH="$PATH:/root/istio-1.0.0/bin"
-
-    https://istio.io/docs/setup/install/
 
     cd /root/istio-1.0.0
 
@@ -12,12 +11,20 @@ Deploy the extensions by applying crds.yaml -
  
     kubectl apply -f install/kubernetes/helm/istio/templates/crds.yaml -n istio-system
  
+ Wait for some time. List out all the CRDs created for Istio 
+ 
+     kubectl api-resources|grep -i istio
+ 
  
 ## Install Istio with default mutual TLS authentication:
  This will deploy Pilot, Mixer, Ingress-Controller, and Egress-Controller, and the Istio CA (Certificate Authority).
  
     kubectl apply -f install/kubernetes/istio-demo-auth.yaml
- 
+
+## Check status
+All the services are deployed as Pods.
+
+    kubectl get pods -n istio-system
  
 ## Deploy Sample Application
 
