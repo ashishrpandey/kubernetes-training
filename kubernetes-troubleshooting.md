@@ -133,5 +133,9 @@ Remove the taints on the master so that you can schedule pods on master as well.
 
           kubectl taint nodes --all node-role.kubernetes.io/master-
 
+Run Kubectl with better logging to see what kubectl is doing.
+
+          kubectl get pods -v=8
+
 ### Never do this 
     kubectl delete all --all
