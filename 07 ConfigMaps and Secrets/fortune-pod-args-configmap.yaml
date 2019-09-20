@@ -6,11 +6,11 @@ spec:
   containers:
   - image: luksa/fortune:args
     env:
-    - name: INTERVAL
+    - name: INTERVAL  #its a environment variable
       valueFrom: 
         configMapKeyRef:
-          name: fortune-config
-          key: sleep-interval
+          name: fortune-config   #name of config map
+          key: sleep-interval #name of the key 
     args: ["$(INTERVAL)"]
     name: html-generator
     volumeMounts:

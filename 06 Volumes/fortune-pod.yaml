@@ -7,12 +7,12 @@ spec:
   - image: luksa/fortune
     name: html-generator
     volumeMounts:
-    - name: html
+    - name: html                #anything written on /var/htdocs will be written to html volume
       mountPath: /var/htdocs
   - image: nginx:alpine
     name: web-server
     volumeMounts:
-    - name: html
+    - name: html  #/usr/share/nginx/html will be mapped to html so it will read whatever is written by fortune app
       mountPath: /usr/share/nginx/html
       readOnly: true
     ports:
@@ -20,5 +20,5 @@ spec:
       protocol: TCP
   volumes:
   - name: html
-    emptyDir: {}
+    emptyDir: {} #type of volume. emptyDir means volume is empty. other options are -> gitRepo so it will copy contents of repo to the volume. hostPath will put the data on host dir
 

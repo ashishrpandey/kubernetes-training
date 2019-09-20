@@ -1,5 +1,5 @@
 ## create the pod from your YAML file, use the kubectl create command:
-    kubectl create -f kubia-manual.yaml
+    kubectl create -f kubia-manual.yaml  #kubernetes-training/03 Pods folder has these files
 
 ## Get pod description:
     kubectl get po kubia-zxzij -o yaml

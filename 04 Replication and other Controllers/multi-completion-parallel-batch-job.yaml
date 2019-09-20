@@ -4,7 +4,7 @@ metadata:
   name: multi-completion-batch-job
 spec:
   completions: 5
-  parallelism: 2
+  parallelism: 2    #run 2 jobs in parallel then again 2 then 1
   template:
     metadata:
       labels:

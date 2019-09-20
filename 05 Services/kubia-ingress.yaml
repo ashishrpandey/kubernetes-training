@@ -1,5 +1,5 @@
 apiVersion: extensions/v1beta1
-kind: Ingress
+kind: Ingress    #this will configure rules on Ingress Controller. We first need to create Ingress Controller. that will be another yaml file
 metadata:
   name: kubia
 spec:
@@ -9,5 +9,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: kubia-nodeport
+          serviceName: kubia-nodeport  # we dont need to use nodeport. we can use cluster IP service
           servicePort: 80

@@ -29,7 +29,7 @@ On both master and slave nodes :
     EOF
     sysctl --system
 
-    setenforce 0
+    setenforce 0 . #disable secure linux. not recomended for production
 
 ### install kubelet, kubeadm and kubectl; start kubelet daemon
 ### Do it on both master as welll as worker nodes 
@@ -69,8 +69,12 @@ watch system pods
     kubectl get pods --all-namespaces
 
 
-on all the worker nodes do 
+on all the worker nodes do below to make kubectl command work on worker
 
     mkdir -p $HOME/.kube
     export KUBECONFIG=/etc/kubernetes/kubelet.conf
     
+to run a service, run following command on master
+
+    kubectl run  nginx --image=nginx --port=80  --> if you get forbidden error then exit and do "sudo su -"
+    kubectl  get pods -o wide . --> to see where pod got created
