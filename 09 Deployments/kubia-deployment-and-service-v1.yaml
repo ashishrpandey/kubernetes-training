@@ -22,7 +22,7 @@ kind: Service
 metadata:
   name: kubia
 spec:
-  type: LoadBalancer
+  type: ClusterIP 
   selector:
     app: kubia
   ports:
