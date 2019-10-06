@@ -52,6 +52,12 @@ Copy kubeadm join command from output of "kubeadm init on master node"
    
     <kubeadm join command copies from master node>
 
+## Clone a repository to get YAML files for Calico networking
+
+    yum install git -y
+    git clone https://github.com/ashishrpandey/kubernetes-training
+    cd kubernetes-training/15-calico/
+      
 
 ## For calico networking: apply on master node only
 
