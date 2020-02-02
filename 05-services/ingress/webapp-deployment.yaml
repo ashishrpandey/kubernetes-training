@@ -1,0 +1,99 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp1
+spec:
+  selector:
+    matchLabels:
+      app: webapp1 
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: webapp1
+    spec:
+      containers:
+      - name: webapp1
+        image: ashishrpandey/appzeke:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp2
+spec:
+  selector:
+    matchLabels:
+      app: webapp2 
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: webapp2
+    spec:
+      containers:
+      - name: webapp2
+        image: ashishrpandey/appzeke:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp3
+spec:
+  selector:
+    matchLabels:
+      app: webapp3 
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: webapp3
+    spec:
+      containers:
+      - name: webapp3
+        image: ashishrpandey/appzeke:latest
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp1-svc
+  labels:
+    app: webapp1
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: webapp1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp2-svc
+  labels:
+    app: webapp2
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: webapp2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp3-svc
+  labels:
+    app: webapp3
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: webapp3
+
