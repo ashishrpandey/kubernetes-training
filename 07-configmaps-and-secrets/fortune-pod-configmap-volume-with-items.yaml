@@ -17,7 +17,7 @@ spec:
       readOnly: true
     - name: config
       mountPath: /etc/nginx/conf.d/
-      readOnly: true
+      readOnly: false
     ports:
     - containerPort: 80
       protocol: TCP
