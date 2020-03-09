@@ -45,7 +45,7 @@ On both master and slave nodes :
     mkdir -p $HOME/.kube
     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
-    export KUBECONFIG=/etc/kubernetes/kubelet.conf
+    
 
 ## On Worker nodes, Switch to the root mode
 Copy kubeadm join command from output of "kubeadm init on master node" 
