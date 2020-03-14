@@ -20,7 +20,7 @@ On both master and slave nodes :
     gpgcheck=1
     repo_gpgcheck=0
     gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-    exclude=kube*
+   
     EOF
 
     cat <<EOF >  /etc/sysctl.d/k8s.conf
@@ -34,7 +34,7 @@ On both master and slave nodes :
 ### install kubelet, kubeadm and kubectl; start kubelet daemon
 ### Do it on both master as welll as worker nodes 
 
-    yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+    yum install -y kubelet kubeadm kubectl 
 
     systemctl enable kubelet && systemctl start kubelet
 
