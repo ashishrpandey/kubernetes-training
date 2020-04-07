@@ -80,3 +80,7 @@ on all the worker nodes do
     mkdir -p $HOME/.kube
     export KUBECONFIG=/etc/kubernetes/kubelet.conf
     
+## Optional 
+If you want your master to run user-defined pods as well, execute below
+
+      kubectl taint nodes --all node-role.kubernetes.io/master-
