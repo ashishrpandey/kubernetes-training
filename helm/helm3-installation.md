@@ -29,3 +29,7 @@
 	  vim Chart.yaml
 	  vim values.yaml
 
+
+- To dig deeper in Helm syntax please refer 
+	
+	- https://helm.sh/docs/chart_template_guide/variables/
