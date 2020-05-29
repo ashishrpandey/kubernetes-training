@@ -35,22 +35,27 @@ From  inside the container. You can use the curl command to access the kubia ser
 
 ## nodeport service 
 
+    kubectl apply -f kubia-svc-nodeport.yaml
+    kubectl get svc 
+    
+ - Open the web-browser and enter Public-IP of Master OR worker node followed by :NodePort
+ - <public-ip-of-master-or-worker-node>:<nodeport> 
+
+## You want to investigate further in the IPTables for service 
+
+    kubectl get svc
+    iptables-save |grep -i 10.99.249.130   ## cluster IP of the service
+    iptables-save |grep -i KUBE-SVC-OGYXBJX3CJ7W6DXK   ## From the result of above command you will find KUBE-SVC-*****
+    iptables-save |grep -i KUBE-SEP-YWMUSWLZWZGIUDKB   ## From the result of above command you will find KUBE****
+    kubectl get pods -o wide                           ## Search the IP address of the pods in the output of iptables-save
+
 
 ## ingress service 
 
-    It would not work as w need a real ingress 
- 
-    kubia-ingress.yaml
-    vim kubernetes-training/05\ Services/kubia-ingress.yaml
-     kubectl apply -f  kubernetes-training/05\ Services/kubia-svc-nodeport.yaml
-      kubectl get ingresses
-      NAME      HOSTS               ADDRESS          PORTS     AGE
-     kubia     kubia.example.com   192.168.99.100   80        29m
-
-      kubectl describe ingresses kubia
+- Follow the link  -    https://github.com/ashishrpandey/kubernetes-training/blob/master/ingress.md
 
 
-how to use aws ALB as ingress 
+- How to use aws ALB as ingress 
 https://aws.amazon.com/blogs/opensource/kubernetes-ingress-aws-alb-ingress-controller/
 
  
