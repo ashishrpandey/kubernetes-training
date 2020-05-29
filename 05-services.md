@@ -31,7 +31,7 @@ From  inside the container. You can use the curl command to access the kubia ser
     root@kubia-3inly:/# curl http://kubia.default
     root@kubia-3inly:/# curl http://kubia
 
- - here kubia corresponds to the service name, default stands for the namespace the service is defined in,
+ - Here kubia corresponds to the service name, default stands for the namespace the service is defined in,
  - svc.cluster.local is a configurable cluster domain suffix used in all cluster local service names. 
  - All of this possible because of DNS service running. 
 
