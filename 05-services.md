@@ -60,4 +60,5 @@ From  inside the container. You can use the curl command to access the kubia ser
 - How to use aws ALB as ingress 
 https://aws.amazon.com/blogs/opensource/kubernetes-ingress-aws-alb-ingress-controller/
 
- 
+- More about the flow of data packets in Kubernetes
+https://sookocheff.com/post/kubernetes/understanding-kubernetes-networking-model/
