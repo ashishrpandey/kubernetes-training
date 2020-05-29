@@ -39,7 +39,7 @@ From  inside the container. You can use the curl command to access the kubia ser
     kubectl get svc 
     
  - Open the web-browser and enter Public-IP of Master OR worker node followed by :NodePort
- - <public-ip-of-master-or-worker-node>:<nodeport> 
+ - public-ip-of-master-or-worker-node:nodeport 
 
 ## You want to investigate further in the IPTables for service 
 
