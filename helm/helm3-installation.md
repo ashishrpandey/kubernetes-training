@@ -4,9 +4,11 @@
 
 ## Install Helm
 
+    PATH=$PATH:/usr/local/bin
     chmod 700 get_helm.sh
 
     ./get_helm.sh
+    
 
 
 ## Add the official chart repository
