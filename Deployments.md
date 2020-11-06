@@ -16,8 +16,9 @@ Cleanup existing pods and replicasets
  
 	 kubectl describe rc kubia-v2
  
- ## Do it more declaratively
- 	kubectl create -f kubia-deployment-v1.yaml --record
+ # Using Deployment 
+ 
+ 	kubectl create -f kubia-deployment-and-service-v1.yaml --record
  
   	kubectl rollout status deployment kubia
   
