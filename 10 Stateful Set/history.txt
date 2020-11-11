@@ -1,0 +1,1000 @@
+  135  kubectl get nodes --show-labels 
+  136  kubectl get ds
+  137  kubectl cluster-info dump > info.log 
+  138  head info.log 
+  139  ls
+  140  cd -
+  141  ls
+  142  pwd
+  143  ls
+  144  cd batch-job/
+  145  ls
+  146  vim Dockerfile 
+  147  cd ..
+  148  ls
+  149  vim batch-job.yaml 
+  150  kubectl apply -f batch-job.yaml 
+  151  kubectl get job 
+  152  kubectl get pods 
+  153  kubectl get rc 
+  154  kubectl delete r kubia2 
+  155  kubectl get rs
+  156  kubectl delete po kubia-gpu kubia-manual2 
+  157  kubectl get ds 
+  158  kubectl delete ds ssd-monitor 
+  159  kubectl get job 
+  160  kubectl get pods 
+  161  kubectl get jobs 
+  162  ls
+  163  vim multi-completion-parallel-batch-job.yaml
+  164  kubectl apply -f multi-completion-parallel-batch-job.yaml
+  165  kubectl get jobs 
+  166  kubectl get pods 
+  167  kubectl delete job batch-job 
+  168  kubectl get pods 
+  169  kubectl get jobs 
+  170  kubectl get pods 
+  171  vim multi-completion-parallel-batch-job.yaml
+  172  kubectl explain pods.spec.restartPolicy 
+  173  ls
+  174  vim cronjob.yaml 
+  175  cd /home/ec2-user/kubernetes-training/
+  176  ls
+  177  cd 05-services/
+  178  kubectl get pods 
+  179  kubectl get jobs 
+  180  kubectl delete jobs multi-completion-batch-job 
+  181  kubectl get jobs 
+  182  kubectl get pods 
+  183  ls
+  184  pwd
+  185  vim kubia-svc.yaml 
+  186  kubectl apply -f kubia-svc.yaml 
+  187  kubectl get svc
+  188  curl 10.99.10.99:80
+  189  kubectl get pods 
+  190  vim kubia-replicaset.yaml 
+  191  kubectl apply -f  kubia-replicaset.yaml 
+  192  kubectl get pods 
+  193  kubectl get svc 
+  194  curl 10.99.10.99:80
+  195  kubectl get po -o wide 
+  196  curl 192.168.122.221:8080
+  197  kubectl get po  --show-labels 
+  198  kubectl get svc 
+  199  kubectl describe svc kubia2
+  200  kubectl get po -o wide 
+  201  kubectl scale rs kubia --replicas=5 
+  202  kubectl describe svc kubia2
+  203  kubectl get po -o wide 
+  204  curl 192.168.122
+  205  curl 10.99.10.99:80
+  206  kubectl get ep 
+  207  history 
+  208  kubectl get ep 
+  209  curl 10.99.10.99:80
+  210  cd ..
+  211  ls
+  212  cd  06-storage/
+  213  l
+  214  ll
+  215  pwd
+  216  vim mongodb-pod-nfs.yaml
+  217  kubectl explain pods.spec.volume 
+  218  kubectl explain pods.spec.volumes 
+  219  vim mongodb-pod-nfs.yaml
+  220  kubectl get cm 
+  221  kubectl edit cm fortune-config
+  222  clear 
+  223  kubectl explain pods.spec.restartPolicy 
+  224  kubectl explain pods.spec.voluemes 
+  225  kubectl explain pods.spec.volumes
+  226  pwd
+  227  ls
+  228  cd /home/ec2-user/kubernetes-training/
+  229  cd 06-storage/
+  230  ls
+  231  vim mongodb-pv-hostpath.yaml
+  232  kubectl apply -f mongodb-pv-hostpath.yaml
+  233  kubectl get pv 
+  234  kubectl get pods 
+  235  kubectl get rs 
+  236  kubectl delete rs kubia 
+  237  ls
+  238  kubectl get pv 
+  239  ls
+  240  vim mongodb-pvc.yaml 
+  241  kubectl apply -f mongodb-pvc.yaml
+  242  kubectl get pvc 
+  243  kubectl get pv
+  244  vim mongodb-pod-pvc.yaml
+  245  kubectl apply -f mongodb-pod-pvc.yaml 
+  246  kubectl get pods 
+  247  vim mongodb-pod-pvc.yaml
+  248  vim mongodb-pvc.yaml 
+  249  ls
+  250  vim mongodb-pv-hostpath.yaml
+  251  vim mongodb-pvc.yaml
+  252  vim mongodb-pv-hostpath.yaml
+  253  kubectl explain pods.spec.persistentVolumeReclaimPolicy
+  254  kubectl explain pods.spec.volumes.persistentVolumeReclaimPolicy
+  255  vim mongodb-pv-hostpath.yaml
+  256  kubectl explain persistentVolumes.spec.persistentVolumeReclaimPolicy
+  257  kubectl get pods 
+  258  kubectl get pvc
+  259  kubectl get pv
+  260  kubectl get 
+  261  kubectl get pods 
+  262  kubectl delete pods  mongodb
+  263  ls
+  264  kubectl apply -f mongodb-pod-pvc.yaml 
+  265  kubectl get pods 
+  266  kubectl describe pods mongodb
+  267  kubectl exec -it mongodb -- sh
+  268  df -h 
+  269  ls
+  270  vim mongodb-pvc.yaml
+  271  kubectl get pods 
+  272  kubectl get pvc 
+  273  kubectl get pv
+  274  kubectl delete pods mongodb 
+  275  kubectl get ppods 
+  276  kubectl get pods 
+  277  kubectl get pvc
+  278  kubectl get pv
+  279  kubectl delete pvc mongodb-pvc 
+  280  kubectl get pv
+  281  ls
+  282  cd ..
+  283  ls
+  284  pwd
+  285  ls
+  286  cd 07-configmaps-and-secrets/
+  287  ls
+  288  cd fortune-args/
+  289  ls
+  290  vim fortuneloop.sh 
+  291  vim Dockerfile 
+  292  cd ..
+  293  ls
+  294  vim fortune-pod-args.yaml
+  295  kubectl apply -f  fortune-pod-args.yaml
+  296  kubectl get pods s
+  297  kubectl get pods 
+  298  kubectl exec -it fortune2s -c html-generator -- bash 
+  299  vim fortune-pod-args.yaml
+  300  kubectl apply -f fortune-pod-args.yaml
+  301  kubectl get po 
+  302   kubectl exec -it fortune10s -c html-generator -- bash
+  303  kubectl get pods 
+  304  kubectl delete po fortune10s fortune2s 
+  305  ls
+  306  cd fortune-env/
+  307  ls
+  308  vim fortuneloop.sh 
+  309  vim Dockerfile 
+  310  cd ..
+  311  ls
+  312  vim fortune-pod-env.yaml
+  313  kubectl apply -f  fortune-pod-env.yaml
+  314  kubectl get po 
+  315   kubectl exec -it fortune-env -c html-generator -- bash
+  316  ls
+  317  vim  fortune-pod-env.yaml
+  318  kubectl apply -f fortune-pod-env.yaml
+  319  vim  fortune-pod-env.yaml
+  320  ls
+  321  cd configmap-files/
+  322  ls
+  323  cat my-nginx-config.conf 
+  324  ls
+  325  cd ..
+  326  ls
+  327  vim fortune-config.yaml
+  328  kubectl get po
+  329  kubectl delete po fortune-env 
+  330  kubectl apply -f fortune-config.yaml 
+  331  kubectl get  cm 
+  332  kubectl describe cm fortune-config
+  333  ls
+  334  vim fortune-pod-env-configmap.yaml
+  335  ls
+  336  cd configmap-files/
+  337  s
+  338  ls
+  339  cd ..
+  340  cat configmap-files/my-nginx-config.conf 
+  341  kubectl get cm 
+  342  kubectl delete cm fortune-config 
+  343  ls
+  344  kubectl create cm fortune-config --from-file=configmap-files
+  345  kubectl get cm 
+  346  kubectl describe  cm  fortune-config 
+  347  ls
+  348  vim fortune-pod-configmap-volume.yaml
+  349  kubectl apply -f  fortune-pod-configmap-volume.yaml
+  350  kubectl get pods
+  351  kubectl get cm 
+  352   
+  353  kubectl exec -it fortune-configmap-volume -c web-server -- bash 
+  354  kubectl exec -it fortune-configmap-volume -c web-server -- sh 
+  355  vim fortune-pod-configmap-volume.yaml
+  356  ls
+  357  cd ..
+  358  ls
+  359  cd 09-deployments/
+  360  ls
+  361  kubectl get cm 
+  362  kubectl delete cm fortune-config
+  363  kubectl get po
+  364  kubectl delete po fortune-configmap-volume 
+  365  pwd
+  366  ls
+  367  vim kubia-deployment-and-service-v1.yaml
+  368  kubectl apply -f kubia-deployment-and-service-v1.yaml
+  369  kubectl get svc 
+  370  kubectl delte svc kubia2 
+  371  kubectl delete svc kubia2 
+  372  kubectl get svc 
+  373  curl 10.103.74.118:80 
+  374  vim kubia-deployment-and-service-v1.yaml
+  375  ls
+  376  kubectl get deploy 
+  377  kubectl describe deploy kubia 
+  378  kubectl patch deployment kubia -p '{"spec": {"minReadySeconds": 10}}'
+  379  kubectl describe deploy kubia 
+  380  kubectl set image deployment kubia nodejs=luksa/kubia:v2
+  381  kubectl get pods 
+  382  kubectl get deploy 
+  383  kubectl get rs 
+  384  curl 10.103.74.118:80 
+  385  kubectl get pods 
+  386  kubectl .describe svc kubia2
+  387  kubectl get deploy 
+  388  kubectl describe deploy kubia 
+  389  kubectl set image deployment kubia nodejs=luksa/kubia:v3
+  390  kubectl rollout status deployment kubia
+  391  pwd
+  392  cd /home/ec2-user/kubernetes-training/09-deployments/
+  393  ls
+  394  kubectl rollout status deployment kubia
+  395  kubectl rollout history deployment kubia
+  396  kubectl get svc
+  397  curl 10.103.74.118:80 
+  398  kubectl rollout history deployment kubia
+  399  kubectl rollout undo deployment kubia
+  400  kuebctl get rs 
+  401  kubectl get rs 
+  402  curl 10.103.74.118:80 
+  403  kubectl rollout undo deployment kubia
+  404  kubectl get rs 
+  405  kubectl rollout pause deployment kubia
+  406  kubectl get rs 
+  407  kubectl rollout undo deployment kubia
+  408  ls
+  409  kubectl set image deployment kubia nodejs=luksa/kubia:v3
+  410  kubectl set image deployment kubia nodejs=luksa/kubia:v4
+  411  kubectl rollout pause deployment kubia
+  412  kubectl get deploy 
+  413  kubectl get rs 
+  414  kubectl rollout resume deployment kubia
+  415  kubectl get rs 
+  416  kubectl rollout pause deployment kubia
+  417  kubectl get rs 
+  418  kubectl rollout resume deployment kubia
+  419  kubectl get rs 
+  420  curl 10.103.74.118:80 
+  421  kubectl rollout history deployment kubia
+  422  kubectl rollout undo deployment kubia  --to-revision=1
+  423  curl 10.103.74.118:80 
+  424  kubectl get rs 
+  425  curl 10.103.74.118:80 
+  426  kubectl api-resources
+  427  kubectl get pods -A |grep -i calico 
+  428  kuectl get nodes 
+  429  kubectl get nodes 
+  430  ifconfig 
+  431  kubectl get pods -o wide 
+  432  kubectl get pods -A -o wide 
+  433  kubectl get pods -A -o wide | grep -i coredns-f9fd979d6-tqqxf
+  434  ifconfig 
+  435  netstat -r 
+  436  kubectl get pods -A 
+  437  kubectl get pods -A -o wide 
+  438  ifconfig 
+  439  netstat -r 
+  440  kubectl get pods -A -o wide 
+  441  172.31.28.193
+  442  cd /home/ec2-user/kubernetes-training/
+  443  ls
+  444  cd 15-calico/
+  445  ls
+  446  vim calico.yaml 
+  447  kubectl get pds 
+  448  kubectl get pods 
+  449  kubect run -it ubuntu --image=ubuntu --bash 
+  450  kubectl run -it ubuntu --image=ubuntu --bash 
+  451  kubectl run -it ubuntu --image=ubuntu -- bash 
+  452  vim ~/.kube/config 
+  453  kubectl get pods 
+  454  kubectl get pods kubia-74967b5695-8bmml -o yaml >pod.yaml 
+  455  vim pod.yaml 
+  456  kubectl get sa 
+  457  cd /home/ec2-user/kubernetes-training/15-calico/
+  458  ls
+  459  vim calico.yaml 
+  460  vim rbac.yaml 
+  461  kubectl api-resources 
+  462  vim rbac.yaml 
+  463  kubectl get pods 
+  464  kubectl get pods -w 
+  465  kubectl get roles 
+  466  kubectl get roles -n kube-system
+  467  kubectl get sa -n kube-system
+  468  kubectl get pods -A 
+  469  kubectl get pods kube-apiserver-ip-172-31-40-31.ap-southeast-1.compute.internal -n kube-system >apiserver.yaml 
+  470  vim apiserver.yaml 
+  471  kubectl get pods kube-apiserver-ip-172-31-40-31.ap-southeast-1.compute.internal -o yaml -n kube-system >apiserver.yaml 
+  472  vim apiserver.yaml 
+  473  kubeadm init --help 
+  474  vim apiserver.yaml 
+  475  cd ..
+  476  s
+  477  cd 05-services/
+  478  ls
+  479  cd ingress/
+  480  pwd
+  481  ls
+  482  pwd
+  483  ls
+  484  vim webapp-deployment.yaml
+  485  kubectl get pods 
+  486  kubectl get deploy 
+  487  kubectl delete deploy kubia 
+  488  kubectl delete po ubuntu 
+  489  kubectl get pods 
+  490  ls
+  491  kubectl apply -f webapp-deployment.yaml
+  492  kubectl get svc 
+  493  kubectl delete svc kubia 
+  494  curl 10.108.106.241:80
+  495  curl 10.106.149.213:80
+  496      kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.28.0/deploy/static/mandatory.yaml
+  497  kubectl get ns 
+  498  kubectl get pods -n ingress-nginx 
+  499  kubectl get all -n ingress-nginx 
+  500  ls
+  501  vim ingress-rules.yaml 
+  502  ls
+  503  kubectl apply -f ingress-nginx-service.yaml
+  504  vim ingress-nginx-service.yaml
+  505  kubectl get svc 
+  506  kubectl get ns
+  507  kubectl get svc -n ingress-nginx
+  508  ls
+  509  vim  ingress-rules.yaml
+  510  kubectl apply -f ingress-rules.yaml
+  511  kubectl get ing 
+  512  kubectl get svc -n ingress-nginx 
+  513  curl -H "host: my.kubernetes.example" 10.96.188.215/webapp1
+  514  kubectl apply -f ../../03-Pods/kubia-manual.yaml 
+  515  kubectl exec -it kubia-manual2 -- bash 
+  516   curl -H "host: my.kubernetes.example" 10.96.188.215/webapp1
+  517  curl -H "host: my.kubernetes.example" 10.110.208.151/webapp1
+  518  kubectl exec -it kubia-manual2 -- bash 
+  519  kubectl get pods -A 
+  520  kubectl get ing 
+  521  iptables -S
+  522  kubectl get svc 
+  523  kubectl get svc | grep -i 10.108.106.241
+  524  iptables -S | grep -i 10.108.106.241
+  525  l
+  526  kubectl get pods --namespace=kube-system -l k8s-app=kube-dns
+  527  kubectl get svc -n kube-system
+  528  kubectl get ep -n kube-system
+  529  kubectl describe svc kube-dns -n kube-system
+  530  clear
+  531  pwd
+  532  git clone https://github.com/ashishrpandey/example-voting-app
+  533  ls
+  534  cd example-voting-app/
+  535  ls
+  536  cd vote/
+  537  ls
+  538  vim app.py
+  539  cd ..
+  540  ls
+  541  pwd
+  542  cd worker/
+  543  ll
+  544  cd ..
+  545  ls
+  546  cd k8s-specifications/
+  547  pwd
+  548  ll
+  549  vim db-deployment.yaml
+  550  vim db-service.yaml
+  551  vim vote-deployment.yaml
+  552  vim vote-service.yaml 
+  553  kubectl get pods 
+  554  kubectl get rc 
+  555  kubectl get rs 
+  556  kubectl get deploy 
+  557  pwd
+  558  cd /home/ec2-user/kubernetes-training/
+  559  ls
+  560  cd 05-services/
+  561  ls
+  562  cd ingress/
+  563  ll
+  564  kubectl delete -f . 
+  565  kubectl get pod
+  566  kubectl delete po kubia-manual2 
+  567  cd -
+  568  cd ~/example-voting-app/k8s-specifications/
+  569  ls
+  570  kubectl get svc 
+  571  kubectl get pods 
+  572  ls
+  573  kubectl apply -f . 
+  574  kubectl get svc 
+  575  kubectl get all 
+  576  pwd
+  577  ls
+  578  kubectl get all 
+  579  kubectl get svc 
+  580  pwd
+  581  kubectl get pods 
+  582  kubectl get svc
+  583  kubectl vote 
+  584  kubectl get pods 
+  585  kubectl delete po vote-8696f44f78-nrqc5
+  586  kubectl get pods 
+  587  kubectl get deploy vote -o yaml >deploy.yaml 
+  588  vim deploy.yaml 
+  589  kubectl cluster-info dump > cluster-info.log
+  590  kubectl get pods 
+  591  kubectl scale deploy vote --replicas=3 
+  592  kubectl get pods 
+  593  kubectl get svc 
+  594  cd ..
+  595  vim worker/src/main/java/worker/
+  596  vim worker/src/main/java/worker/Worker.java 
+  597  ls
+  598  kubectl get pods 
+  599  kubectl get deploy 
+  600  kubectl scale deploy db --repicas=3
+  601  kubectl scale deploy db --replicas=3
+  602  kubectl get deploy 
+  603  kubectl get pods 
+  604  kubectl delete po db-7ddfcb7467-jgffq 
+  605  kubectl get pods 
+  606  kubectl delete po result-788bbdd4d9-7x7q5 
+  607  kubectl get pods 
+  608  kubectl logs result-788bbdd4d9-2pfr7 
+  609  kubectl get pods 
+  610  kubectl get po
+  611  cd example-voting-app/
+  612  ls
+  613  cd k8s-specifications/
+  614  kubectl delete -f . 
+  615  kubectl get deploy 
+  616  kubectl get svc 
+  617  iptables-save 
+  618  iptables-save >ip1.txt 
+  619  vim ip1.txt 
+  620  ls
+  621  cd /home/ec2-user/
+  622  ls
+  623  cd kubernetes-training/05-services/
+  624  kubectl apply -f kubia-svc.yaml 
+  625  iptables-save >ip2.txt
+  626  mv ~/example-voting-app/k8s-specifications/ip1.txt . 
+  627  vim -d ip1.txt ip2.txt 
+  628  vim ../03-Pods/kubia-manual.yaml 
+  629  kubectl apply -f ../03-Pods/kubia-manual.yaml 
+  630  iptables-save >ip2-withpods.txt
+  631  vim -d ip2.txt ip2-withpods.txt
+  632  vim ../03-Pods/kubia-manual.yaml 
+  633  kubectl apply -f ../03-Pods/kubia-manual.yaml 
+  634  iptables-save >ip2-with1ep.txt
+  635  vim -d ip2.txt ip2-with1ep.txt
+  636  kubectl get po -o wide 
+  637  vim -d ip2.txt ip2-with1ep.txt
+  638  ifconfig 
+  639  kubectl get pods 
+  640  kuebctl exec -it kubia-manual -- bash 
+  641  kubectl exec -it kubia-manual -- bash 
+  642  ls
+  643  cd ../03-Pods/
+  644  ls
+  645  vim kubia-manual-with-labels.yaml
+  646  kubectl apply -f kubia-manual-with-labels.yaml
+  647  kubectl get pods s-o wide 
+  648  kubectl get pods -o wide 
+  649  kubectl get nodes 
+  650  ls
+  651  history 
+  652  kubectl get svc 
+  653  kubectl delete svc kubia2 
+  654  kubectl get pods 
+  655  kubectl delete po kubia-manual kubia-manual-v2 
+  656  kubectl get pods 
+  657  ls
+  658  iptables-save >ipt1.txt 
+  659  kubectl get pods 
+  660  kubectl apply -f ../05-services/kubia-svc.yaml 
+  661  kubectl get svc 
+  662  iptables-save >ipt-withservice.txt 
+  663  vim -d ipt1.txt ipt-withservice.txt 
+  664  kubectl describe svc kubia2 
+  665  vim kubia-manual.yaml 
+  666  kubectl apply -f kubia-manual.yaml 
+  667  kubectl get pods 
+  668  kubectl get ep 
+  669  iptables-save > ipt-withservice-1pod.txt
+  670  ll
+  671  vim -d ipt-withservice.txt ipt-withservice-1pod.txt
+  672  kubectl get pods -o wide 
+  673  vim -d ipt-withservice.txt ipt-withservice-1pod.txt
+  674  netstat -r 
+  675  ifconfig 
+  676  kubectl get ns 
+  677  kubectl get pods -A 
+  678  kubectl get pods -A |grep -i 192.168 
+  679  kubectl get pods -n ingress-nginx
+  680  kubectl get n 
+  681  kubectl get ns 
+  682  kubectl get pods 
+  683  kubectl get pods -o wide 
+  684  kubectl get pods -A -o wide 
+  685  kubectl get pods -A 
+  686  kubectl get pods -A -o wide 
+  687  kubectl get svc -n kube-system 
+  688  kubectl get ep -n kube-system 
+  689  kubectl get pods 
+  690  kubectl exec -it kubia-manual -- bash 
+  691  cd ../
+  692  cd 05-services/
+  693  ls
+  694  vim external-service-endpoints.yaml
+  695  vim external-service.yaml
+  696  kubectl apply -f  external-service-endpoints.yaml
+  697  kubectl get ep 
+  698  kubectl get svc 
+  699  kubectl apply -f external-service.yaml
+  700  iptables-save > ipt-withservice-1pod1extsvc.txt
+  701  cd -
+  702  cd 03-Pods/
+  703  vim -d ipt-withservice-1pod.txt ../05-services/ipt-withservice-1pod1extsvc.txt 
+  704  netstat -rn 
+  705  vim -d ipt-withservice-1pod.txt ../05-services/ipt-withservice-1pod1extsvc.txt 
+  706  kubectl get svc 
+  707  vim -d ipt-withservice-1pod.txt ../05-services/ipt-withservice-1pod1extsvc.txt 
+  708  cd 
+  709  curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+  710  ls
+  711  PATH=$PATH:/usr/local/bin
+  712  chmod 700 get_helm.sh
+  713  ./get_helm.sh
+  714  helm 
+  715  helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+  716  helm repo add stable https://charts.helm.sh/stable
+  717  helm search repo mysql
+  718  helm search repo nginx 
+  719  helm search repo mysql
+  720  helm install --name mavenir-mysql-1 stable/mysql
+  721  helm install mavenir-mysql-1 stable/mysql
+  722  kubectl get deploy 
+  723  kubectl get all 
+  724  kubectl get pvc 
+  725  kubectl get pv
+  726  kubectl get cm 
+  727  ls
+  728  ll
+  729  ll -a 
+  730  cd .cache/
+  731  ls
+  732  cd helm/repository/
+  733  ls
+  734  tar -zxvf mysql-1.6.7.tgz 
+  735  ls
+  736  pwd
+  737  ls
+  738  cd mysql/
+  739  ls
+  740  vim Chart.yaml 
+  741  vim README.md 
+  742  cd templates/
+  743  ls
+  744  kubectl get deploy 
+  745  vim deployment.yaml
+  746  cd ..
+  747  ls
+  748  vim values.yaml 
+  749  cd templates/
+  750  ls
+  751  vim deployment.yaml 
+  752  cd ..
+  753  ls
+  754  cp values.yaml values-cisco.yaml
+  755  cp values.yaml values-airtel.yaml
+  756  ls
+  757  cp values.yaml values-atnt.yaml 
+  758  ls
+  759  vim values-airtel.yaml
+  760  ls
+  761  cd 
+  762  helm create mavenir 
+  763  ls
+  764  cd mavenir/
+  765  ls
+  766  cd templates/
+  767  ls
+  768  cd ..
+  769  ls
+  770  cdd -
+  771  cd -
+  772  ls
+  773  vim deployment.yaml 
+  774  cd ..
+  775  ls
+  776  vim values.yaml 
+  777  helm 
+  778  ls
+  779  vim values.yaml 
+  780  ls
+  781  cd templates/
+  782  ls
+  783  cd templates/
+  784  ls
+  785  vim deployment.yaml
+  786  kubectl get deploy 
+  787  helm list 
+  788  ls
+  789  cd ..
+  790  ls
+  791  cd ..
+  792  ls
+  793  cd /var/log/
+  794  vim messages
+  795  ls
+  796  pwd
+  797  cd
+  798  cd /home/ec2-user/
+  799  ls
+  800  cd kubernetes-training/
+  801  ls
+  802  cd 10\ Stateful\ Set/
+  803  pwd
+  804  ls
+  805  vim kubia-statefulset.yaml
+  806  vim persistent-volumes-hostpath.yaml
+  807  kubectl get pods 
+  808  helm delete mavenir-mysql-1
+  809  kubectl get deploy 
+  810  kubectl get pods 
+  811  kubectl delete pods kubia-manual 
+  812  ls
+  813  kubectl get pv 
+  814  kubectl delete pv mongodb-pv 
+  815  kubectl get pv 
+  816  ls
+  817  kubectl apply -f persistent-volumes-hostpath.yaml
+  818  kubectl get pv 
+  819  ls
+  820  vim kubia-statefulset.yaml
+  821  kubectl get pvc 
+  822  kubectl get po 
+  823  kubectl apply -f kubia-statefulset.yaml 
+  824  kubectl get po 
+  825  kubectl get sts 
+  826  kubectl get po
+  827  kubectl get pvc 
+  828  kubectl get pv
+  829  kubectl get pods
+  830  kubectl delete po kubia-0 
+  831  kubectl get pods
+  832  kubectl get pods 
+  833  kubectl get pv 
+  834  kubectl get pvc
+  835  kubectl scale sts kubia --replicas=3
+  836  kubectl get pvc
+  837  kubectl get po
+  838  kubectl get pv
+  839  kubectl get pvc
+  840  kubectl scale sts kubia --replicas=4
+  841  kubectl get pods
+  842  kubectl get pvc
+  843  kubectl get pv
+  844  kubectl scale sts kubia --replicas=2
+  845  kubectl get pods 
+  846  kubectl get pvc
+  847  kubectl get pods 
+  848  kubectl get pvc
+  849  kubectl scale sts kubia --replicas=3
+  850  kubectl get pvc
+  851  kubectl get po
+  852  ls
+  853  vim kubia-service-headless.yaml
+  854  vim kubia-statefulset.yaml 
+  855  kubectl apply -f kubia-service-headless.yaml
+  856  kubectl get ep 
+  857  kubectl get svc 
+  858  ifconfig 
+  859  docker run 
+  860  kubectl get pods -A | grep -i calico 
+  861  ifconfig
+  862  kubectl get pods -A | grep -i calico 
+  863  kubectl get pods -o wide 
+  864  kubectl get sts 
+  865  kubectl delete sts kubia 
+  866  pwd
+  867  kubectl get pods 
+  868  kubectl get ns 
+  869  kubectl get deploy 
+  870  kubectl delete ns ingress-nginx 
+  871  kubectl get all 
+  872  kubectl get ns 
+  873  kubectl get all --all
+  874  kubectl get all -A 
+  875  kubectl get all 
+  876  kubectl delete svc service/external-service service/kubia service/kubia2 
+  877  kubectl delete svc external-service kubia kubia2 
+  878  kubectl get all 
+  879  kubectl get ep 
+  880  ifconfig 
+  881  kubectl get pods 
+  882  kubectl get ns
+  883  kubectl get pods -A 
+  884  kubectl get pods -A -o wide
+  885  cd /home/ec2-user/kubernetes-training/15-calico/
+  886  ls
+  887  vim calico.yaml 
+  888  cd ../..
+  889  cd kubernetes-training/03-Pods/
+  890  ls
+  891  kubectl apply -f kubia-manual.yaml 
+  892  kubectl get pods -o wide 
+  893  kubectl delete po kubia-manual 
+  894  kubectl get pods 
+  895  kubectl get pods -A 
+  896  kubectl get pods -A -o wide 
+  897  kubectl apply -f kubia-manual.yaml 
+  898  kubectl get pods -o wide 
+  899  ifconfig 
+  900  kubectl describe po coredns-f9fd979d6-gt77k -n kube-system 
+  901  kubectl get rs -A 
+  902  kubectl get deploy -A 
+  903  kubectl describe deploy coredns -n kube-system 
+  904  ifnconfig
+  905  ifconfig
+  906  kubectl get pods 
+  907  kubectl exec -it kubia-manual 
+  908  kubectl exec -it kubia-manual -- bash 
+  909  netstat -r 
+  910  kubectl get pods -o wide 
+  911  cd ../15-calico/
+  912  ls
+  913  vim calico.yaml 
+  914  cd ../..
+  915  cd
+  916  cd example-voting-app/k8s-specifications/
+  917  kubectl delete -f . 
+  918  pwd
+  919  cd -
+  920  kubectl get pods 
+  921  kubectl delete po kubia-manual
+  922  kubectl get all 
+  923  iptables-save >ipt0.txt 
+  924  ifconfig 
+  925  vim ipt0.txt 
+  926  kubectl apply -f kubia-manual.yaml 
+  927  cd /home/ec2-user/kubernetes-training/03-Pods/
+  928  kubectl apply -f kubia-manual.yaml 
+  929  kubectl get pods 
+  930  kubectl get pods --show-labels 
+  931  vim  kubia-manual.yaml
+  932  kubectl label po kubia-manual app=kubia --overwrite
+  933  cd ../05-services/
+  934  vim kubia-svc.yaml 
+  935  kubectl apply -f kubia-svc.yaml
+  936  kubectl get svc 
+  937  iptables-save >ipt0-withservice.txt 
+  938  ll
+  939  date 
+  940  cd -
+  941  ls
+  942  ll
+  943  cd 
+  944  ll
+  945  date 
+  946  vim -d ipt0.txt /home/ec2-user/kubernetes-training/05-services/ipt0-withservice.txt
+  947  kubectl get pods -o wide 
+  948  vim -d ipt0.txt /home/ec2-user/kubernetes-training/05-services/ipt0-withservice.txt
+  949  netstat -r 
+  950  cd /home/ec2-user/kubernetes-training/03-Pods/
+  951  ls
+  952  vim kubia-manual-with-labels.yaml
+  953  pwd
+  954  kubectl apply -f  kubia-manual-with-labels.yaml
+  955  kubectl get pods --show-labels 
+  956  kubectl get ep 
+  957  kubectl get pods -o wide 
+  958  vim kubia-manual-with-labels.yaml
+  959  kubectl delete -f  kubia-manual-with-labels.yaml
+  960  vim kubia-manual-with-labels.yaml
+  961  kubectl apply -f  kubia-manual-with-labels.yaml
+  962  kubectl get po 
+  963  kubectl get ep 
+  964  kubectl get po 
+  965  kubectl apply -f  kubia-manual-with-labels.yaml
+  966  kubectl get po 
+  967  kubectl get po --show-label 
+  968  kubectl get ep
+  969  iptables-save >ipt0-withserviceand2pod.txt 
+  970  ls
+  971  vim -d ipt-withservice.txt ipt0-withserviceand2pod.txt 
+  972  cd ../05-services/
+  973  ls
+  974  vim kubia-svc-nodeport.yaml
+  975  kubectl apply -f kubia-svc-nodeport.yaml 
+  976  netstat -antp 30123 
+  977  netstat -antp |grep -i 30123  
+  978  kubectl get svc 
+  979  iptables-save >ipt0-withserviceand2pod-nodeport.txt 
+  980  vim -d ../03-Pods/ipt0-withserviceand2pod.txt ipt0-withserviceand2pod-nodeport.txt
+  981  ll
+  982  ls
+  983  vim external-service-endpoints.yaml 
+  984  vim external-service.yaml
+  985  vim -d ipt-withservice.txt ipt0-withserviceand2pod.txt 
+  986  cd - 
+  987  vim -d ipt-withservice.txt ipt0-withserviceand2pod.txt 
+  988  cd -
+  989  ls
+  990  cd ingress/
+  991  ls
+  992  pwd
+  993  vim ingress-rules.yaml
+  994  kuebctl get ing 
+  995  kubectl get pods -A 
+  996  kubectl describe po kube-apiserver-ip-172-31-40-31.ap-southeast-1.compute.internal -n kube-system 
+  997  kubectl explain ing.spec.rules
+  998  kubectl explain ing.spec.rules.http
+  999  kubectl explain ing.spec.rules.http.paths
+ 1000  kubectl get pods 
+ 1001  kubectl delete po kubia-manual  kubia-manual-v2 
+ 1002  cd /home/ec2-user/kubernetes-training/06-storage/
+ 1003  ls
+ 1004  cd fortune/
+ 1005  ls
+ 1006  vim fortuneloop.sh 
+ 1007  vim Dockerfile 
+ 1008  cd ..
+ 1009  ls
+ 1010  vim fortune-pod.yaml 
+ 1011  kubectl apply -f fortune-pod.yaml 
+ 1012  kubectl get pods
+ 1013  kubectl get pods 
+ 1014  kubectl get pods -o wide 
+ 1015  curl 192.168.122.220:80 
+ 1016  kubectl get pods 
+ 1017  kubectl exec -it fortune -c html-generator -- bash
+ 1018  kubectl get pods 
+ 1019  kubectl describe po fortune
+ 1020  kubectl exec -it fortune -c html-generator -- bash
+ 1021  kubectl exec -it fortune -c web-server -- bash
+ 1022  kubectl exec -it fortune -c web-server -- sh
+ 1023  ls
+ 1024  vim 
+ 1025  kubectl get pods 
+ 1026  kubectl delete pod fortune 
+ 1027  ls
+ 1028  vim fortune-pod.yaml 
+ 1029  kubectl explain pods.spec.volumes
+ 1030  ls
+ 1031  vim mongodb-pod-hostpath.yaml
+ 1032  vim fortune-pod.yaml 
+ 1033  kubectl apply -f fortune-pod.yaml 
+ 1034  kubectl get pods 
+ 1035  kubectl describe po fortune
+ 1036  kubectl get pods -o wide 
+ 1037  kubectl exec -it fortune -c html-generator -- bash 
+ 1038  vim fortune-pod.yaml 
+ 1039  ls
+ 1040  vim mongodb-pod-nfs.yaml
+ 1041  kubectl logs fortune
+ 1042  kubectl get pods 
+ 1043  kubectl logs fortune -c web-server
+ 1044  ls
+ 1045  vim mongodb-pv-hostpath.yaml
+ 1046  kubectl apply -f  mongodb-pv-hostpath.yaml
+ 1047  kubectl get pv 
+ 1048  kubectl get pods 
+ 1049  ls
+ 1050   kubectl delete pv pv-a pv-b pv-c 
+ 1051  kubectl get pv 
+ 1052  kubectl get pvc
+ 1053  kubectl get sts 
+ 1054  kubectl delete pvc data-kubia-0  data-kubia-1 data-kubia-2 data-kubia-3 
+ 1055  kubectl get pv 
+ 1056  kubectl delete pv mongodb-pv    
+ 1057  kubectl get pv 
+ 1058  kubectl get pvc
+ 1059  ls
+ 1060  kubectl apply -f mongodb-pv-hostpath.yaml 
+ 1061  kubectl get pv 
+ 1062  ls
+ 1063  vim mongodb-pv-gcepd.yaml
+ 1064  ls 
+ 1065  vim mongodb-pvc.yaml
+ 1066  kubectl apply -f  mongodb-pvc.yaml
+ 1067  kubectl get pvc 
+ 1068  kubectl get pv
+ 1069  ls
+ 1070  vim mongodb-pod-pvc.yaml
+ 1071  kubectl apply -f  mongodb-pod-pvc.yaml
+ 1072  kubectl get pods 
+ 1073  kubectl delete pods recycler-for-pv-a
+ 1074  kubectl delete pods recycler-for-pv-b
+ 1075  kubectl delete pods fortune
+ 1076  kubectl get po 
+ 1077  kubectl describe po mongodb 
+ 1078  kubectl get pods 
+ 1079  kubectl exec -it mongodb 
+ 1080  kubectl exec -it mongodb -- bash 
+ 1081  ls
+ 1082  vim mongodb-pod-pvc.yaml
+ 1083  kubectl get pods 
+ 1084* kubectl delete  
+ 1085  kubectl get pvc
+ 1086  kubectl delete pvc mongodb-pvc 
+ 1087  kubectl get pv
+ 1088  kubectl delete pv mongodb-pv
+ 1089  ls
+ 1090  cd ..
+ 1091  ls
+ 1092  cd 10\ Stateful\ Set/
+ 1093  pwd
+ 1094  ls
+ 1095  vim persistent-volumes-hostpath.yaml
+ 1096  kubectl apply -f persistent-volumes-hostpath.yaml
+ 1097  kubectl get pv 
+ 1098  ls
+ 1099  vim kubia-statefulset.yaml
+ 1100  kubectl apply -f kubia-statefulset.yaml 
+ 1101  kubectl get sts 
+ 1102  kubectl get po
+ 1103  pwd
+ 1104  kubectl get pvc 
+ 1105  kubectl get pv
+ 1106* kubectl delete po kubia
+ 1107  kubectl get po 
+ 1108  kubectl get po -o wide 
+ 1109  kubectl get sts 
+ 1110  kubectl scale sts kubia --replicas=3 
+ 1111  kubectl get pods 
+ 1112  kubectl get pvc 
+ 1113  kubectl get pv
+ 1114  kubectl scale sts kubia --replicas=4 
+ 1115  kubectl get pods 
+ 1116  kubectl get pvc
+ 1117  kubectl get pv 
+ 1118  kubectl get pods 
+ 1119  kubectl get pvc
+ 1120  kubectl get pv
+ 1121  kubectl delete 
+ 1122  kubectl scale sts kubia --replicas=2
+ 1123  kubectl get pods 
+ 1124  kubectl get pvcs 
+ 1125  kubectl get pvc
+ 1126  kubectl scale sts kubia --replicas=3
+ 1127  kubectl get pods
+ 1128  kubectl get pvc
+ 1129  kubectl get pods
+ 1130  vim ../05-services/kubia-svc.yaml 
+ 1131  ls
+ 1132  vim kubia-statefulset.yaml 
+ 1133  history 
+ 1134  history >history.txt
