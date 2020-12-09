@@ -1,10 +1,10 @@
 
 
 For Amazon Linux 2 systems
-Launch 2 amazon linux 2 machines
-1 master and 1 slaves
+- Launch 2 amazon linux 2 machines
+- 1 master and 1 worker
 
-On both master and slave nodes :
+On both master and worker nodes :
 
     sudo su 
     yum install docker -y 
@@ -41,7 +41,9 @@ On both master and slave nodes :
 ### On master node  initialize the cluster 
 
     sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=NumCPU
-    #  sudo kubeadm init --pod-network-cidr=192.168.0.0/16 #Do this only if proper CPU cores are available
+    
+### On master node place Kubeconfig file at proper location
+
     mkdir -p $HOME/.kube
     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
