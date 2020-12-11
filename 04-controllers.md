@@ -3,7 +3,7 @@
 # Replication Controller
 
 ## Follow below commnads and observe how pods are getting created 
-    kubectl create -f kubia-rc.yaml
+    kubectl apply -f kubia-rc.yaml
     kubectl get pods
     kubectl delete pod kubia-53thy
     kubectl get pods
@@ -20,7 +20,7 @@
     kubectl get pods -L app
   
 ### Scale out
-    kubectl scale rc kubia --replicas=10
+    kubectl scale rc kubia --replicas=3
 
 ### Delete without deleting pods 
     kubectl delete rc kubia --cascade=false
