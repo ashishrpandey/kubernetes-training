@@ -17,7 +17,6 @@
  
 ## Install mysql chart
 
-	  helm search repo stable
 	  helm search repo mysql
 	  helm repo update
 	  helm install stable/mysql --generate-name
