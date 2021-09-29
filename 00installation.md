@@ -34,7 +34,7 @@ On both master and worker nodes :
 ### install kubelet, kubeadm and kubectl; start kubelet daemon
 ### Do it on both master as welll as worker nodes 
 
-    yum install -y kubelet kubeadm kubectl 
+    yum install -y kubelet-1.18.5 kubeadm-1.18.5 kubectl-1.18.5 
 
     systemctl enable kubelet && systemctl start kubelet
 
