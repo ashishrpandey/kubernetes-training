@@ -7,7 +7,7 @@ For Amazon Linux 2 systems
 On both master and worker nodes :
 
     sudo su 
-    yum install docker -y 
+    sudo amazon-linux-extras install docker -y 
     systemctl enable docker && systemctl start docker
 
 
